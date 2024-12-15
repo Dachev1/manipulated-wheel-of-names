@@ -1,0 +1,199 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #2F3C7E, #FBEAEB);
+    color: #333;
+    text-align: center;
+    padding: 10px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Title Styling */
+h1 {
+    font-size: 2.5rem;
+    color: #FBEAEB;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.05em;
+}
+
+/* Wheel Container */
+.wheel-container {
+    position: relative;
+    margin: 20px 0;
+}
+
+#wheelCanvas {
+    border: 8px solid #FBEAEB;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+}
+
+.pointer {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    right: -15px;
+    transform: translateY(-50%);
+    border-right: 20px solid #2F3C7E;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    z-index: 10;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    gap: 10px; /* Space between input and buttons */
+    margin-top: 15px;
+    width: 100%;
+}
+
+input[type="text"] {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #FBEAEB;
+    color: #2F3C7E;
+    width: 30%;
+    max-width: 400px;
+    margin-bottom: 10px; /* Add spacing below the input */
+}
+
+input::placeholder {
+    color: #2F3C7E;
+    opacity: 0.8;
+}
+
+button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #2F3C7E, #FBEAEB);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    max-width: 200px;
+    width: calc(100% - 20px); /* Ensure buttons fit well within the layout */
+    margin-bottom: 0.4em;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #FBEAEB, #2F3C7E);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Active State for Stop Button */
+button#stopButton:active,
+button#stopButton[pressed="true"] {
+    background: #FF6363;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5);
+    transform: scale(0.95);
+}
+
+/* Winner Modal */
+.winner-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FBEAEB;
+    color: #2F3C7E;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000;
+    display: none;
+    max-width: 90%;
+    width: 320px;
+    box-sizing: border-box;
+}
+
+.winner-modal h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #2F3C7E;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .controls {
+        gap: 8px;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    .winner-modal h2 {
+        font-size: 1.5rem;
+    }
+
+    #wheelCanvas {
+        width: 95%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    button {
+        font-size: 0.8rem;
+        padding: 8px 18px;
+    }
+
+    input[type="text"] {
+        font-size: 0.9rem;
+    }
+
+    .winner-modal h2 {
+        font-size: 1.3rem;
+    }
+}
