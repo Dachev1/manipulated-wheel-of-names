@@ -174,8 +174,8 @@ button#stopButton[pressed="true"] {
     }
 
     #wheelCanvas {
-        width: 95%;
-        max-width: 300px;
+        width: 80%; /* Keep slightly smaller on medium screens */
+        max-width: 250px; /* Adjust max size */
     }
 }
 
@@ -195,5 +195,10 @@ button#stopButton[pressed="true"] {
 
     .winner-modal h2 {
         font-size: 1.3rem;
+    }
+
+    #wheelCanvas {
+        width: 80%; /* Make the circle smaller */
+        max-width: 200px; /* Further reduce max size for small phones */
     }
 }

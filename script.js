@@ -225,7 +225,10 @@ function closeModal() {
     overlay.style.display = 'none';
 
     winSound.pause(); // Stop the win sound
+
+    // Automatically spin the wheel again after closing the modal
+    spinWheel();
 }
 
-setSecretWinners('Niki', 3, 'Didi', 4);
+setSecretWinners('Niki', 7, 'Didi', 6);
 drawWheel();
